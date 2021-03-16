@@ -101,7 +101,7 @@ struct MouseMoveStart {
     detail: u8,
 }
 
-pub struct UmberWM {
+pub struct My {
     conf: Conf,
     current_workspace: WorkspaceName,
     float_windows: Vec<Window>,
@@ -212,7 +212,7 @@ fn change_workspace(conn: &xcb::Connection, workspaces: &mut HashMap<WorkspaceNa
         ).flatten().collect()
     }
 
-impl UmberWM {
+impl My {
 
     pub fn get_displays_geometries(&mut self) -> Result<Vec<Geometry>, Box<dyn Error>> {
         let conn = &self.conn;
@@ -685,7 +685,7 @@ impl UmberWM {
     }
 }
 
-pub fn umberwm(conf: Conf) -> UmberWM {
+pub fn my(conf: Conf) -> My {
     let (conn, _) = xcb::Connection::connect(None).unwrap();
     let conf_workspaces_flatten : Vec<Key> = conf.workspaces_names.clone().into_iter().flatten().collect();
     let workspaces = conf_workspaces_flatten.into_iter().map( |x|
@@ -696,7 +696,7 @@ pub fn umberwm(conf: Conf) -> UmberWM {
         })).into_iter().collect();
     let xmodmap_pke = xmodmap_pke().unwrap();
     let current_workspace = conf.workspaces_names.get(0).unwrap()[0].to_string();
-    let mut wm = UmberWM {
+    let mut wm = My {
         conf: conf,
         current_workspace: current_workspace,
         float_windows: vec![],

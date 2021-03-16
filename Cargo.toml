@@ -1,13 +1,13 @@
 [package]
-name = "umberwm"
+name = "my"
 version = "0.0.20"
 authors = ["yazgoo <yazgoo@gmail.com>"]
 edition = "2018"
 license = "MIT"
-description = "minimalist X11 window manager"
+description = "my minimalist X11 window manager"
 readme = "README.md"
-homepage = "https://github.com/yazgoo/umberwm"
-repository = "https://github.com/yazgoo/umberwm"
+homepage = "https://github.com/yuulive/my"
+repository = "https://github.com/yuulive/my"
 keywords = ["wm", "x11", "terminal"]
 categories = ["GUI"]
 
